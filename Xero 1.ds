@@ -1,0 +1,727 @@
+/*
+ * Author       : precisionseedingsolutions
+ * Generated on : 25-Aug-2021 02:19:21
+ * Version      : 1.0
+ */
+ application "Xero"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Australia/Sydney"
+ 	time format = "24-hr"
+	section Credentials
+	{
+		icon = "ui-1-calendar-grid-61"
+		form Credentials
+		{
+			success message = "Data Added Successfully!"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Refresh_token
+			(
+    			type = text
+				displayname = "Refresh token"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Access_token
+			(
+    			type = textarea
+				displayname = "Access token"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Client_ID
+			(
+    			type = text
+				displayname = "Client ID"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Client_Secret
+			(
+    			type = text
+				displayname = "Client Secret"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Tenant_ID
+			(
+    			type = text
+				displayname = "Tenant ID"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "ui-1-calendar-grid-61"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		default list Credentials_Report
+		{
+			displayName = "Credentials Report"
+			show all rows from Credentials    
+			(
+				Refresh_token as "Refresh token"
+				Access_token as "Access token"
+				Client_ID as "Client ID"
+				Client_Secret as "Client Secret"
+				Tenant_ID as "Tenant ID"
+			)
+			options
+			(
+				icon = "business-laptop-71"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Refresh_token as "Refresh token"
+							Access_token as "Access token"
+							Client_ID as "Client ID"
+							Client_Secret as "Client Secret"
+							Tenant_ID as "Tenant ID"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Refresh_token as "Refresh token"
+							Access_token as "Access token"
+							Client_ID as "Client ID"
+							Client_Secret as "Client Secret"
+							Tenant_ID as "Tenant ID"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Add_Record
+	{
+		displayname= "Add Record"
+		icon = "users-2-voice-record"
+		form Add_Record
+		{
+			displayname = "Add Record"
+			success message = "Data Added Successfully!"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Module
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Contact", "Item", "Invoice"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Inventory_ID
+			(
+				type = number
+				displayname = "Inventory ID"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "users-2-voice-record"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		default list Add_Record_Report
+		{
+			displayName = "Add Record Report"
+			show all rows from Add_Record    
+			(
+				Module
+				Inventory_ID as "Inventory ID"
+			)
+			options
+			(
+				icon = "media-1-button-record"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Module
+							Inventory_ID as "Inventory ID"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Module
+							Inventory_ID as "Inventory ID"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+		functions
+		{
+				Deluge
+			{
+				void newToken()
+				{
+					fetRec = Credentials[ID != null];
+					headers = Map();
+					headers.put("content-type","application/x-www-form-urlencoded");
+					headers.put("grant_type","refresh_token");
+					myMap = Map();
+					myMap.put("grant_type","refresh_token");
+					myMap.put("refresh_token","" + fetRec.Refresh_token + "");
+					myMap.put("client_id","" + fetRec.Client_ID + "");
+					myMap.put("client_secret","" + fetRec.Client_Secret + "");
+					getRec = invokeurl
+					[
+						url :"https://identity.xero.com/connect/token"
+						type :POST
+						parameters:myMap
+						headers:headers
+					];
+					fetRec.Refresh_token=getRec.get("refresh_token");
+					fetRec.Access_token=getRec.get("access_token");
+				}
+				string Xero.create_Customer(int conID)
+				{
+					getcred = Credentials[ID != 0];
+					thisapp.newToken();
+					ContactID = "";
+					Headers_Map = Map();
+					Headers_Map.put("xero-tenant-id","" + getcred.Tenant_ID + "");
+					Headers_Map.put("Authorization","Bearer " + getcred.Access_token);
+					Headers_Map.put("Accept","application/json");
+					Headers_Map.put("Content-Type","application/json");
+					fetRec = invokeurl
+					[
+						url :"https://api.xero.com/api.xro/2.0/Contacts/" + conID
+						type :GET
+						headers:Headers_Map
+					];
+					Status = fetRec.get("Status");
+					Customer_Map = Map();
+					Data_Map = Map();
+					getRec = zoho.inventory.getRecordsByID("Contacts","686295717",conID.toString(),"inventory_connection");
+					Customer_Map = getRec.get("contact").toMap();
+					Billing_address = Customer_Map.get("billing_address").toMap();
+					Shipping_address = Customer_Map.get("shipping_address").toMap();
+					ContactNumber = Customer_Map.get("contact_id").toString();
+					Name = Customer_Map.get("contact_name").toString();
+					FirstName = Customer_Map.get("first_name").toString();
+					LastName = Customer_Map.get("last_name").toString();
+					EmailAddress = Customer_Map.get("email").toString();
+					Bill_City = Billing_address.get("city").toString();
+					Bill_Region = Billing_address.get("state").toString();
+					Bill_PostalCode = Billing_address.get("zip").toString();
+					Bill_Country = Billing_address.get("country").toString();
+					Ship_City = Shipping_address.get("city").toString();
+					Ship_Region = Shipping_address.get("state").toString();
+					Ship_PostalCode = Shipping_address.get("zip").toString();
+					Ship_Country = Shipping_address.get("country").toString();
+					PhoneNumber = Customer_Map.get("mobile").toString();
+					PhoneAreaCode = Customer_Map.get("state_code").toString();
+					PhoneCountryCode = Customer_Map.get("country_code").toString();
+					Data_Map = {"ContactNumber":ContactNumber,"Name":Name,"FirstName":FirstName,"LastName":LastName,"EmailAddress":EmailAddress,"Addresses":{{"AddressType":"STREET","City":Bill_City,"Region":Bill_Region,"PostalCode":Bill_PostalCode,"Country":Bill_Country},{"AddressType":"POBOX","City":Ship_City,"Region":Ship_Region,"PostalCode":Ship_PostalCode,"Country":Ship_Country}},"Phones":{{"PhoneType":"MOBILE","PhoneNumber":PhoneNumber,"PhoneAreaCode":PhoneAreaCode,"PhoneCountryCode":PhoneCountryCode}}};
+					if(Status != null)
+					{
+						All_Contacts = fetRec.get("Contacts");
+						Contacts = All_Contacts.get(0).toMap();
+						ContactID = Contacts.get("ContactID");
+						Data_Map.put("ContactID",ContactID);
+					}
+					create_Rec = invokeurl
+					[
+						url :"https://api.xero.com/api.xro/2.0/Contacts"
+						type :POST
+						parameters:Data_Map.toString()
+						headers:Headers_Map
+					];
+					All_Contacts = create_Rec.get("Contacts");
+					Contacts = All_Contacts.get(0).toMap();
+					ContactID = Contacts.get("ContactID");
+					return ContactID;
+				}
+				string Xero.create_Item(int Item_ID)
+				{
+					getcred = Credentials[ID != 0];
+					thisapp.newToken();
+					Headers_Map = Map();
+					Headers_Map.put("xero-tenant-id","" + getcred.Tenant_ID + "");
+					Headers_Map.put("Authorization","Bearer " + getcred.Access_token);
+					Headers_Map.put("Accept","application/json");
+					Headers_Map.put("Content-Type","application/json");
+					fetRec = invokeurl
+					[
+						url :"https://api.xero.com/api.xro/2.0/Items/" + Item_ID
+						type :GET
+						headers:Headers_Map
+					];
+					Status = fetRec.get("Status");
+					Data_Map = Map();
+					Item_Map = Map();
+					getRec = zoho.inventory.getRecordsByID("Items","686295717",Item_ID.toString(),"inventory_connection");
+					Item_Map = getRec.get("item").toMap();
+					Code = Item_Map.get("item_id").toString();
+					Name = Item_Map.get("name").toString();
+					Description = Item_Map.get("description").toString();
+					PurchaseDescription = Item_Map.get("purchase_description").toString();
+					Purchase_price = Item_Map.get("purchase_rate").toString();
+					Sales_price = Item_Map.get("sales_rate").toString();
+					Data_Map = {"Code":Code,"Name":Name,"Description":Description,"PurchaseDescription":PurchaseDescription,"PurchaseDetails":{"UnitPrice":Purchase_price,"AccountCode":"310"},"SalesDetails":{"UnitPrice":Sales_price,"AccountCode":"200"}};
+					if(Status != null)
+					{
+						All_Items = fetRec.get("Items");
+						Items = All_Items.get(0).toMap();
+						ItemID = Items.get("ItemID");
+						Data_Map.put("ItemID",ItemID);
+					}
+					create_Rec = invokeurl
+					[
+						url :"https://api.xero.com/api.xro/2.0/Items"
+						type :POST
+						parameters:Data_Map.toString()
+						headers:Headers_Map
+					];
+					All_Items = create_Rec.get("Items");
+					Items = All_Items.get(0).toMap();
+					ItemID = Items.get("ItemID");
+					return Item_ID;
+				}
+				void Xero.create_Invoice(int Inv_ID)
+				{
+					getcred = Credentials[ID != 0];
+					thisapp.newToken();
+					Headers_Map = Map();
+					Headers_Map.put("xero-tenant-id","" + getcred.Tenant_ID + "");
+					Headers_Map.put("Authorization","Bearer " + getcred.Access_token);
+					Headers_Map.put("Accept","application/json");
+					Headers_Map.put("Content-Type","application/json");
+					Invoice_Map = Map();
+					Data_Map = Map();
+					getRec = zoho.inventory.getRecordsByID("Invoices","686295717",Inv_ID.toString(),"inventory_connection");
+					Invoice_Map = getRec.get("invoice").toMap();
+					Type = "ACCREC";
+					InvoiceNumber = Invoice_Map.get("invoice_number").toString();
+					fetRec = invokeurl
+					[
+						url :"https://api.xero.com/api.xro/2.0/Invoices/" + InvoiceNumber
+						type :GET
+						headers:Headers_Map
+					];
+					Response_status = fetRec.get("Status");
+					Inv_Status = Invoice_Map.get("status").toString();
+					if(Inv_Status == "draft")
+					{
+						Status = "DRAFT";
+					}
+					if(Inv_Status == "overdue" || Inv_Status == "sent")
+					{
+						Status = "SUBMITTED";
+					}
+					if(Inv_Status == "paid")
+					{
+						Status = "AUTHORISED";
+					}
+					Line_items = List();
+					All_lineitems = Invoice_Map.get("line_items");
+					for each  items in All_lineitems
+					{
+						inv_items = items.toMap();
+						ItemCode = thisapp.Xero.create_Item(inv_items.get("item_id"));
+						Description = inv_items.get("description").toString();
+						if(Description == "" || Description == null)
+						{
+							Description = "#" + ItemCode.toString();
+						}
+						Quantity = inv_items.get("quantity").toString();
+						UnitAmount = inv_items.get("rate").toString();
+						xero_item = {"ItemCode":ItemCode,"Description":Description,"Quantity":Quantity,"UnitAmount":UnitAmount};
+						Line_items.add(xero_item);
+					}
+					ContactID = thisapp.Xero.create_Customer(Invoice_Map.get("customer_id"));
+					Date = Invoice_Map.get("date").toString();
+					DueDate = Invoice_Map.get("due_date").toString();
+					LineAmountTypes = "Exclusive";
+					LineItems = Line_items;
+					Data_Map = {"Type":Type,"InvoiceNumber":InvoiceNumber,"Status":Status,"Contact":{"ContactID":ContactID},"Date":Date,"DueDate":DueDate,"LineAmountTypes":LineAmountTypes,"LineItems":LineItems};
+					if(Response_status != null)
+					{
+						All_Invoices = fetRec.get("Invoices");
+						Invoices = All_Invoices.get(0).toMap();
+						InvoiceID = Invoices.get("InvoiceID");
+						Data_Map.put("InvoiceID",InvoiceID);
+					}
+					create_Rec = invokeurl
+					[
+						url :"https://api.xero.com/api.xro/2.0/Invoices"
+						type :POST
+						parameters:Data_Map.toString()
+						headers:Headers_Map
+					];
+					All_Invoices = create_Rec.get("Invoices");
+					Invoices = All_Invoices.get(0).toMap();
+					InvoiceID = Invoices.get("InvoiceID");
+					//Updating invoice with Xero ID
+					Custom_Fields = {"custom_fields":{{"index":1,"show_on_pdf":false,"value":"" + InvoiceID + "","label":"Xero ID"}}};
+					Update_Rec = zoho.inventory.updateRecord("Invoices","686295717",Inv_ID.toString(),Custom_Fields,"inventory_connection");
+					info Update_Rec;
+				}
+				void test()
+				{
+					search_map = Map();
+					search_map.put("date",zoho.currentdate);
+					search_map.put("sort_column","created_time");
+					getRec = zoho.inventory.getRecords("Invoices","686295717",search_map,"inventory_connection");
+					All_invoices = getRec.get("invoices");
+					for each  invoice in All_invoices
+					{
+						Invoice_Map = invoice.toMap();
+						info Invoice_Map.get("invoice_id");
+					}
+				}
+			}
+		}
+
+
+
+
+		workflow
+		{
+		form
+		{
+			Xero_Integration as "Xero Integration"
+			{
+				type =  form
+				form = Add_Record
+				record event = on edit
+
+				on success
+				{
+					actions  (Module == "Contact")
+					{
+						custom deluge script
+						(
+											thisapp.Xero.create_Customer(input.Inventory_ID);
+						)
+					}
+					actions  (Module == "Item")
+					{
+						custom deluge script
+						(
+											thisapp.Xero.create_Item(input.Inventory_ID);
+						)
+					}
+					actions  (Module == "Invoice")
+					{
+						custom deluge script
+						(
+											thisapp.Xero.create_Invoice(input.Inventory_ID);
+						)
+					}
+				}
+
+			}
+			Cancel_delete_operation as "Cancel delete operation"
+			{
+				type =  form
+				form = Add_Record
+				record event = on delete
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											cancel delete;
+						)
+					}
+				}
+
+			}
+			Cancel_delete_operation1 as "Cancel delete operation"
+			{
+				type =  form
+				form = Credentials
+				record event = on delete
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											cancel delete;
+						)
+					}
+				}
+
+			}
+		}
+
+		schedule
+		{
+			Updating_new_token as "Updating new token"
+			{
+				type =  schedule
+				start = "2021-07-29 00:05:00"
+				frequency = daily
+				time zone = "Australia/Sydney"
+				on start
+				{
+					actions 
+					{
+					on load
+					(
+						thisapp.newToken();
+					)
+					}
+				}
+			}
+		}
+
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+			role Hierarchy = {Add_Record,Credentials}
+	}
+
+	customize
+	{
+		
+		layout = "tab"
+		color = "black"
+		base theme = "professional"
+		new theme = 1
+		
+		icons = true
+		icons style = outline
+	}
+
+	
+}
